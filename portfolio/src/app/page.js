@@ -99,6 +99,96 @@ export default function Home() {
                         </p>
                     </div>
                 </section>
+
+                {/* Experience Section */}
+                <section id="experience" className="mb-16">
+                    <h3 className="text-lg font-semibold text-[var(--foreground)] mb-8 lg:hidden">
+                        Experience
+                    </h3>
+                    <div className="space-y-12">
+                        {/* Job 1 */}
+                        <div>
+                            <p className="text-sm text-[var(--muted)] mb-1">
+                                2021 — 2023
+                            </p>
+                            <h4 className="text-[var(--foreground)] font-medium">
+                                UI Engineer · Undead Labs (Microsoft)
+                            </h4>
+                            <p className="text-[var(--muted)] mt-2">
+                                Built component patterns for an accessible UI
+                                library. Migrated frontend from React to Svelte
+                                (30% memory reduction). Used XState for state
+                                management. Built automated testing with
+                                Playwright.
+                            </p>
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    React
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    Svelte
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    XState
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    Playwright
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Job 2 */}
+                        <div>
+                            <p className="text-sm text-[var(--muted)] mb-1">
+                                2019 — 2021
+                            </p>
+                            <h4 className="text-[var(--foreground)] font-medium">
+                                Software Engineer · Yebo Technologies
+                            </h4>
+                            <p className="text-[var(--muted)] mt-2">
+                                Built frontend for a simulation authoring tool.
+                                Owned cross-browser compatibility. Improved
+                                accessibility (WCAG).
+                            </p>
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    JavaScript
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    Web Components
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    WCAG
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Job 3 */}
+                        <div>
+                            <p className="text-sm text-[var(--muted)] mb-1">
+                                2024 — Present
+                            </p>
+                            <h4 className="text-[var(--foreground)] font-medium">
+                                Freelance
+                            </h4>
+                            <p className="text-[var(--muted)] mt-2">
+                                Web apps for startups. React, TypeScript,
+                                Node.js.
+                            </p>
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    React
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    TypeScript
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    Node.js
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     );
