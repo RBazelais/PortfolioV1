@@ -189,6 +189,100 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
+
+                {/* Projects Section */}
+                <section id="projects" className="mb-16">
+                    <h3 className="text-lg font-semibold text-[var(--foreground)] mb-8 lg:hidden">
+                        Projects
+                    </h3>
+                    <div className="space-y-12">
+                        {/* Project 1 */}
+                        <div>
+                            <h4 className="text-[var(--foreground)] font-medium">
+                                <a
+                                    href="https://github.com/Web103QPRBKA/CPWeb103FinalProject2025"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-[var(--primary)]"
+                                >
+                                    Logic Puzzle App
+                                </a>
+                            </h4>
+                            <p className="text-[var(--muted)] mt-2">
+                                Full-stack puzzle game built with a team.
+                            </p>
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    React
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    JavaScript
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    Node.js
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    PostgreSQL
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Project 2 */}
+                        <div>
+                            <h4 className="text-[var(--foreground)] font-medium">
+                                <a
+                                    href="https://github.com/RBazelais/The-Hype-Check"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-[var(--primary)]"
+                                >
+                                    The Hype Check
+                                </a>
+                            </h4>
+                            <p className="text-[var(--muted)] mt-2">
+                                Movie trailer discussion platform with real-time
+                                updates.
+                            </p>
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    React
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    Supabase
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    Tailwind
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Project 3 */}
+                        <div>
+                            <h4 className="text-[var(--foreground)] font-medium">
+                                <a
+                                    href="https://github.com/RBazelais/LuckySlotMachine"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-[var(--primary)]"
+                                >
+                                    Lucky Slots
+                                </a>
+                            </h4>
+                            <p className="text-[var(--muted)] mt-2">
+                                Slot machine with animations and probability
+                                engine.
+                            </p>
+                            <div className="flex flex-wrap gap-2 mt-3">
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    React
+                                </span>
+                                <span className="text-xs px-2 py-1 rounded bg-[var(--card)] text-[var(--primary)]">
+                                    TypeScript
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     );
