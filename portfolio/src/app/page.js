@@ -102,7 +102,7 @@ export default function Home() {
 			{/* Right Content */}
 			<main className="lg:w-2/3">
 				{/* About Section */}
-				<section id="about" className="mb-16">
+				<section id="about" className="mb-16 scroll-mt-24">
 					<h3 className="text-lg font-semibold text-[var(--foreground)] mb-4 lg:hidden">
 						About
 					</h3>
@@ -141,7 +141,7 @@ export default function Home() {
 				</section>
 
 				{/* Experience Section */}
-				<section id="experience" className="mb-16">
+				<section id="experience" className="mb-16 scroll-mt-24">
 					<h3 className="text-lg font-semibold text-[var(--foreground)] mb-8 lg:hidden">
 						Experience
 					</h3>
@@ -231,7 +231,7 @@ export default function Home() {
 				</section>
 
 				{/* Projects Section */}
-				<section id="projects" className="mb-16">
+				<section id="projects" className="mb-16 scroll-mt-24">
 					<h3 className="text-lg font-semibold text-[var(--foreground)] mb-8 lg:hidden">
 						Projects
 					</h3>
