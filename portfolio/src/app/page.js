@@ -64,7 +64,7 @@ export default function Home() {
 						UI Engineer
 					</h2>
 					<p className="subtitle-animated text-[var(--muted)] mt-4" style={{ animationDelay: '1.2s' }}>
-						I build intuitive, performant UIs for games and the web. 
+					A design-minded engineer focused on building intuitive interfaces and experiences for web and games. 
 					</p>
 
 					{/* Navigation */}
