@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import BackgroundTabs from "@/components/BackgroundTabs";
+import ExperienceTabs from "@/components/ExperienceTabs";
 import Projects from "@/components/Projects";
 
 export default function Home() {
@@ -166,13 +166,11 @@ export default function Home() {
 						<h3 className="text-lg font-semibold text-[var(--foreground)] mb-4 lg:hidden">About</h3>
 						<div className="text-[var(--muted)] space-y-4">
 							<p>
-								I&apos;m a software engineer who builds digital experiences that feel intuitive. I love the space where thoughtful design meets reusable, intentional code. My path into tech has been hands-on, taking me from frontend roles to building UI for AAA games at an Xbox Games studio.
+								I&apos;m a software engineer who builds UI systems for web and games. I love the moment when code and design click together and something just feels right to use, whether that&apos;s a component library, a game interface, or a tool someone will interact with every day. I care about making those experiences accessible to everyone. 
 							</p>
 							<p>
-								Most recently, I was a UI Engineer at Undead Labs, where I worked on frontend systems for a major game. I built component libraries in Svelte and connected them to Unreal Engine 5, making sure everything ran smoothly across PC, Xbox, and cloud.
+								Most recently, I built UI at Undead Labs using Svelte, Coherent Gameface and Unreal Engine 5. Before that, I made in browser 3D simulation tools and demoed small games at PAX and GDC. I think a lot about how interfaces should get out of the way and let people do what they came to do.
 							</p>
-							<p>
-								I enjoy breaking down complex problems into something that just feels right to use, whether I&apos;m building a component library, a 3D simulation tool, or shipping my own games.</p>
 							<p>
 								When I&apos;m not coding, I&apos;m usually
 								practicing bass, bouldering, kayaking, or trying to stay upright on a snowboard.
@@ -181,13 +179,7 @@ export default function Home() {
 					</section>
 
 					{/* Experience Section */}
-					<section
-						id="experience"
-						className="mb-24 scroll-mt-0"
-						aria-label="Work experience"
-					>
-						<BackgroundTabs />
-					</section>
+					<ExperienceTabs />
 
 					{/* Projects Section */}
 					<Projects />
