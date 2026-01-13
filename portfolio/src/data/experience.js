@@ -2,7 +2,7 @@ export const experience = [
     {
         date: "2024 — Present",
         title: "Software Engineer · Freelance",
-        description: "Full-stack web and mobile apps for startups and game studios. Prototypes, MVPs, and responsive accessible interfaces.",
+        description: "Build web apps for small businesses, from concept to launch. Create interactive prototypes and MVPs to help clients validate ideas and secure funding.",
         skills: ["React", "TypeScript", "Node.js", "Next.js", "PostgreSQL"]
     },
     {
