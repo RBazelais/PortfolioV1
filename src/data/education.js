@@ -12,7 +12,7 @@ export const education = [
         subtitle: null,
         description: null,
         courses: [
-            { name: "Technical Interview Prep II", note: null },
+            { name: "Intermediate Technical Interview Prep", note: null },
             { name: "Intermediate Web Development", note: "Honors" },
             { name: "Advanced Web Development", note: "Honors" }
         ],
