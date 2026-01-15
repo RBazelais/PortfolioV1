@@ -1,16 +1,9 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 import ParallaxBackground from "@/components/ParallaxBackground";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Rachél Bazelais | UI Engineer",
@@ -39,12 +32,12 @@ export default function RootLayout({ children }) {
 				<meta name="bingbot" content="index, follow" />
 				<meta name="AdsBot-Google" content="noindex, nofollow" />
 			</head>
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
-				<ParallaxBackground />
-				{children}
-			</body>
+			<body className={inter.className}>
+                <SmoothScrollProvider>
+                    <ParallaxBackground />
+                    {children}
+                </SmoothScrollProvider>
+            </body>
 		</html>
 	);
 }
