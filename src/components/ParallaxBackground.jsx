@@ -1,50 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSmoothScroll } from "@/providers/SmoothScrollProvider";
 
 export default function ParallaxBackground() {
-    const [scrollY, setScrollY] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    const { scrollY } = useSmoothScroll();
 
     return (
         <div className="fixed inset-0 pointer-events-none" style={{ zIndex: -2 }}>
-            {/* Deep background layer - moves slowest */}
-            {/* <div
-                className="absolute w-[600px] h-[600px] rounded-full opacity-30 blur-[100px]"
-                style={{
-                    background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
-                    top: "10%",
-                    left: "-10%",
-                    transform: `translateY(${scrollY * 0.05}px)`,
-                }}
-            />
-            <div
-                className="absolute w-[500px] h-[500px] rounded-full opacity-20 blur-[100px]"
-                style={{
-                    background: "radial-gradient(circle, var(--secondary) 0%, transparent 70%)",
-                    bottom: "20%",
-                    right: "-10%",
-                    transform: `translateY(${scrollY * -0.08}px)`,
-                }}
-            />
-            <div
-                className="absolute w-[400px] h-[400px] rounded-full opacity-15 blur-[80px]"
-                style={{
-                    background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
-                    top: "50%",
-                    left: "30%",
-                    transform: `translateY(${scrollY * 0.03}px)`,
-                }}
-            /> */}
-
             {/* Mid layer - geometric shapes */}
             <svg
                 className="absolute opacity-10"

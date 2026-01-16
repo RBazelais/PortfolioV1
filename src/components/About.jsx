@@ -1,6 +1,8 @@
+import { FadeInSection } from "./ScrollAnimations";
+
 export default function About() {
 	return (
-		<section id="about" className="mb-24 scroll-mt-24" aria-label="About me">
+		<FadeInSection id="about" className="mb-24 scroll-mt-24" aria-label="About me">
 			<h3 className="text-lg font-semibold text-[var(--foreground)] mb-4 lg:hidden">About</h3>
 			<div className="text-[var(--muted)] space-y-4">
 				<p>
@@ -13,6 +15,6 @@ export default function About() {
 					When I&apos;m not coding, I&apos;m usually practicing bass, bouldering, kayaking, or trying to stay upright on a snowboard.
 				</p>
 			</div>
-		</section>
+		</FadeInSection>
 	);
 }
