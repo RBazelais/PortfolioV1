@@ -1,18 +1,57 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import { projects } from "@/data/projects";
+import { FadeInSection } from "./ScrollAnimations";
+
+// Stagger animation variants - slide in from right
+const staggerContainer = {
+	hidden: {},
+	visible: {
+		transition: { staggerChildren: 0.1 }
+	}
+};
+
+const staggerItem = {
+	hidden: { opacity: 0, x: 30 },
+	visible: {
+		opacity: 1,
+		x: 0,
+		transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }
+	}
+};
 
 export default function Projects() {
+	const prefersReducedMotion = useReducedMotion();
+
+	const ListContainer = prefersReducedMotion ? "ul" : motion.ul;
+	const ListItem = prefersReducedMotion ? "li" : motion.li;
+
+	const listContainerProps = prefersReducedMotion
+		? {}
+		: {
+			initial: "hidden",
+			whileInView: "visible",
+			viewport: { once: true, margin: "-50px" },
+			variants: staggerContainer,
+		};
+
+	const listItemProps = prefersReducedMotion
+		? {}
+		: { variants: staggerItem };
+
 	return (
-		<section id="projects" className="mb-24 scroll-mt-0" aria-label="Selected projects">
+		<FadeInSection id="projects" className="mb-24 scroll-mt-0" aria-label="Selected projects">
 			<h3 className="text-lg font-semibold text-[var(--foreground)] mb-8 lg:hidden">
 				Projects
 			</h3>
-			<ul className="group/list">
+			<ListContainer className="group/list" {...listContainerProps}>
 				{projects.map((project) => (
-					<li key={project.slug} className="mb-12">
+					<ListItem key={project.slug} className="mb-12" {...listItemProps}>
 						<div className="group relative grid grid-cols-1 gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-					<div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-xl border border-transparent transition-all duration-200 motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-[var(--primary)]/30 lg:group-hover:bg-white/[0.02] lg:group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"></div>
+							<div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-xl border border-transparent transition-all duration-200 motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-[var(--primary)]/30 lg:group-hover:bg-white/[0.02] lg:group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"></div>
 							<Image
 								src={project.image}
 								alt={`${project.title} screenshot`}
@@ -48,9 +87,9 @@ export default function Projects() {
 								</ul>
 							</div>
 						</div>
-					</li>
+					</ListItem>
 				))}
-			</ul>
-		</section>
+			</ListContainer>
+		</FadeInSection>
 	);
 }
