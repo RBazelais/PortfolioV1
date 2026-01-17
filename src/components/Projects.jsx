@@ -78,7 +78,7 @@ export default function Projects() {
 								</p>
 								<ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
 									{project.skills.map((skill, index) => (
-										<li key={index} className="mr-1.5 mt-2">
+										<li key={index} className="skill-pill mr-1.5 mt-2">
 											<div className="flex items-center rounded-full bg-[var(--primary)]/10 px-3 py-1 text-xs font-medium leading-5 text-[var(--primary)]">
 												{skill}
 											</div>

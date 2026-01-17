@@ -210,3 +210,55 @@ strong, .highlight {
 		transform: translateY(0);
 	}
 }
+
+/* iOS WOBBLE ANIMATION FOR SKILL PILLS */
+
+@keyframes wobble1 {
+	0% {
+		transform: rotate(-0.5deg);
+		animation-timing-function: ease-in;
+	}
+	50% {
+		transform: rotate(1deg);
+		animation-timing-function: ease-out;
+	}
+}
+
+@keyframes wobble2 {
+	0% {
+		transform: rotate(0.5deg);
+		animation-timing-function: ease-in;
+	}
+	50% {
+		transform: rotate(-1deg);
+		animation-timing-function: ease-out;
+	}
+}
+
+/* Wobble on project card hover */
+.group:hover .skill-pill {
+	animation-iteration-count: infinite;
+	animation-fill-mode: both;
+}
+
+/* Alternate between two wobble keyframes */
+.group:hover .skill-pill:nth-child(2n) {
+	animation-name: wobble1;
+	transform-origin: 50% 10%;
+}
+
+.group:hover .skill-pill:nth-child(2n-1) {
+	animation-name: wobble2;
+	animation-direction: alternate;
+	transform-origin: 30% 5%;
+}
+
+/* Staggered timing for randomness feel */
+.skill-pill:nth-child(1) { animation-delay: -0.05s; animation-duration: 0.25s; }
+.skill-pill:nth-child(2) { animation-delay: -0.12s; animation-duration: 0.28s; }
+.skill-pill:nth-child(3) { animation-delay: -0.08s; animation-duration: 0.22s; }
+.skill-pill:nth-child(4) { animation-delay: -0.15s; animation-duration: 0.30s; }
+.skill-pill:nth-child(5) { animation-delay: -0.03s; animation-duration: 0.26s; }
+.skill-pill:nth-child(6) { animation-delay: -0.10s; animation-duration: 0.24s; }
+.skill-pill:nth-child(7) { animation-delay: -0.07s; animation-duration: 0.27s; }
+.skill-pill:nth-child(8) { animation-delay: -0.13s; animation-duration: 0.23s; }
