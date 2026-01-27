@@ -6,7 +6,7 @@ export const projects = [
 		description: "Standup Tracker helps developers track daily progress by automatically pulling GitHub commits to create standup notes in seconds. Perfect for async teams and individuals who want to stay organized without disrupting workflow.",
 		image: "/images/projects/standup-tracker.png",
 		github: "https://github.com/RBazelais/standup-tracker",
-		liveUrl: null,
+		liveUrl: "https://standup-tracker-indol.vercel.app/",
 		featured: true,
 		status: "in-progress",
 		
