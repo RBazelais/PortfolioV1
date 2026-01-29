@@ -94,7 +94,7 @@ export default function Sidebar() {
 				style={{ animationDelay: "1.2s" }}
 			>
 				A design-minded engineer focused on building intuitive
-				interfaces and experiences for web and games.
+				interfaces and experiences.
 			</p>
 
 			{/* Navigation - Git Diff Style */}

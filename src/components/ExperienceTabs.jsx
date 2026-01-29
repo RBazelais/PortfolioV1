@@ -206,7 +206,7 @@ export default function ExperienceTabs() {
 					>
 						{education.map((item, index) => (
 							<ListItem key={index} className="mb-12" {...listItemProps}>
-								<article className="group relative grid grid-cols-1 gap-4 p-4 lg:p-6 lg:grid-cols-[120px_1fr] rounded-xl border border-transparent transition-all duration-150 motion-reduce:transition-none lg:hover:!opacity-100 lg:group-hover/list:opacity-50 lg:hover:border-[var(--primary)]/30 lg:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] card-bg card-bg--accent">
+								<article className="group relative grid grid-cols-1 gap-2 p-4 lg:p-6 lg:grid-cols-[120px_1fr] rounded-xl border border-transparent transition-all duration-150 motion-reduce:transition-none lg:hover:!opacity-100 lg:group-hover/list:opacity-50 lg:hover:border-[var(--primary)]/30 lg:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] card-bg card-bg--accent">
 									<header className="z-10 text-sm text-[var(--ui-divider)] font-mono">
 										<time dateTime={item.date.includes("—") ? item.date.replace(" — ", "/") : item.date}>
 											{item.date}
