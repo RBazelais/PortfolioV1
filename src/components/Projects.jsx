@@ -44,7 +44,7 @@ export default function Projects() {
 		: { variants: staggerItem };
 
 	return (
-		<FadeInSection id="projects" className="scroll-mt-20" aria-label="Selected projects">
+		<FadeInSection id="projects" className="scroll-mt-24" aria-label="Selected projects">
 			{/* Header - only visible on mobile */}
 			<h3 className="section-header mb-6 block lg:hidden">
 				Projects
