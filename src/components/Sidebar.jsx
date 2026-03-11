@@ -31,6 +31,27 @@ export default function Sidebar() {
 		return () => observer.disconnect();
 	}, []);
 
+	const handleNavClick = useCallback((e, sectionId) => {
+		e.preventDefault();
+		const target = document.getElementById(sectionId);
+		if (!target) return;
+
+		// Scroll to section
+		target.scrollIntoView({ behavior: "smooth" });
+
+		// Move focus into the section so the next Tab navigates within it.
+		// tabIndex="-1" allows programmatic focus without joining the tab order.
+		if (!target.hasAttribute("tabindex")) {
+			target.setAttribute("tabindex", "-1");
+			target.addEventListener(
+				"blur",
+				() => target.removeAttribute("tabindex"),
+				{ once: true }
+			);
+		}
+		target.focus({ preventScroll: true });
+	}, []);
+
 	const replayAnimation = useCallback(() => {
 		const nameRow = document.querySelector(".name-animated");
 		const letters = nameRow?.querySelectorAll(".letter");
@@ -64,26 +85,33 @@ export default function Sidebar() {
 	return (
 		<header className="lg:w-[48%] lg:sticky lg:top-24 lg:h-fit mb-12 lg:mb-0 flex flex-col">
 			{/* Animated Name - Click to replay */}
-			<h1
-				className="name-animated text-4xl font-bold cursor-pointer"
-				onClick={replayAnimation}
-				title="Click to replay animation"
-			>
-				<span className="letter">R</span>
-				<span className="letter">a</span>
-				<span className="letter">c</span>
-				<span className="letter">h</span>
-				<span className="letter">é</span>
-				<span className="letter">l</span>
-				<span className="letter space"></span>
-				<span className="letter">B</span>
-				<span className="letter">a</span>
-				<span className="letter">z</span>
-				<span className="letter">e</span>
-				<span className="letter">l</span>
-				<span className="letter">a</span>
-				<span className="letter">i</span>
-				<span className="letter">s</span>
+			<h1 className="name-animated text-4xl font-bold">
+				<button
+					onClick={replayAnimation}
+					className="cursor-pointer bg-transparent border-none p-0 text-inherit font-inherit"
+					aria-label="Replay name animation"
+				>
+					{/* Screen reader text */}
+					<span className="sr-only">Rachél Bazelais</span>
+					{/* Decorative animated letters */}
+					<span aria-hidden="true">
+						<span className="letter">R</span>
+						<span className="letter">a</span>
+						<span className="letter">c</span>
+						<span className="letter">h</span>
+						<span className="letter">é</span>
+						<span className="letter">l</span>
+						<span className="letter space"></span>
+						<span className="letter">B</span>
+						<span className="letter">a</span>
+						<span className="letter">z</span>
+						<span className="letter">e</span>
+						<span className="letter">l</span>
+						<span className="letter">a</span>
+						<span className="letter">i</span>
+						<span className="letter">s</span>
+					</span>
+				</button>
 			</h1>
 
 			<h2 className="subtitle-animated text-xl text-[var(--accent)] mt-2">
@@ -104,6 +132,7 @@ export default function Sidebar() {
 						<a
 							href="#about"
 							className={`nav-link ${activeSection === "about" ? "active" : ""}`}
+							onClick={(e) => handleNavClick(e, "about")}
 						>
 							About
 						</a>
@@ -112,6 +141,7 @@ export default function Sidebar() {
 						<a
 							href="#experience"
 							className={`nav-link ${activeSection === "experience" ? "active" : ""}`}
+							onClick={(e) => handleNavClick(e, "experience")}
 						>
 							Experience
 						</a>
@@ -120,6 +150,7 @@ export default function Sidebar() {
 						<a
 							href="#projects"
 							className={`nav-link ${activeSection === "projects" ? "active" : ""}`}
+							onClick={(e) => handleNavClick(e, "projects")}
 						>
 							Projects
 						</a>

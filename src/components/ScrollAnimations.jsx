@@ -41,26 +41,9 @@ export function FadeIn({
 export function FadeInSection({ children, className = "", id, ...props }) {
 	const prefersReducedMotion = useReducedMotion();
 
-	if (prefersReducedMotion) {
-		return <section id={id} className={className} {...props}>{children}</section>;
-	}
-
-	return (
-		<motion.section
-			id={id}
-			className={className}
-			initial={{ opacity: 0, y: 20 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.2 }}
-			transition={{
-				duration: 0.6,
-				ease: defaultEasing,
-			}}
-			{...props}
-		>
-			{children}
-		</motion.section>
-	);
+	// Always render as plain section for accessibility
+	// Screen readers need immediate access to content
+	return <section id={id} className={className} {...props}>{children}</section>;
 }
 
 // Container for staggered list items (supports custom element via `as` prop)

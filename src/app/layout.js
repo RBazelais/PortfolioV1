@@ -33,6 +33,12 @@ export default function RootLayout({ children }) {
 				<meta name="AdsBot-Google" content="noindex, nofollow" />
 			</head>
 			<body className={inter.className}>
+                <a
+                    href="#about"
+                    className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--accent)] focus:text-[var(--bg-base)] focus:rounded"
+                >
+                    Skip to main content
+                </a>
                 <SmoothScrollProvider>
                     <ParallaxBackground />
                     {children}

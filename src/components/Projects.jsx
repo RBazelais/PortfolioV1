@@ -44,7 +44,7 @@ export default function Projects() {
 		: { variants: staggerItem };
 
 	return (
-		<FadeInSection id="projects" className="scroll-mt-24" aria-label="Selected projects">
+		<FadeInSection id="projects" className="scroll-mt-20" aria-label="Selected projects">
 			{/* Header - only visible on mobile */}
 			<h3 className="section-header mb-6 block lg:hidden">
 				Projects
@@ -70,10 +70,8 @@ export default function Projects() {
 								
 								{/* Content Below */}
 								<div className="z-10">
-									{/* Featured Badge */}
 									<span className="featured-badge mb-3">Featured Project</span>
 									
-									{/* Title */}
 									<h4 className="text-[var(--ui-active)] font-semibold leading-snug text-xl">
 										<Link
 											href={`/projects/${project.slug}`}
@@ -99,17 +97,15 @@ export default function Projects() {
 										</Link>
 									</h4>
 									
-									{/* Description */}
 									<p className="text-[var(--ui-muted)] mt-3 text-base leading-relaxed">
 										{project.description}
 									</p>
 									
-									{/* Skills */}
 									<ul className="mt-4 flex flex-wrap gap-2 list-none p-0" aria-label="Technologies used">
 										{project.skills.map((skill, index) => (
 											<li key={index} className="skill-pill">
 												<span className={getSkillTagClass(skill)}>
-													{skill}
+													<span className="sr-only">Skill: </span>{skill}
 												</span>
 											</li>
 										))}
@@ -157,7 +153,7 @@ export default function Projects() {
 										{project.skills.map((skill, index) => (
 											<li key={index} className="skill-pill">
 												<span className={getSkillTagClass(skill)}>
-													{skill}
+													<span className="sr-only">Skill: </span>{skill}
 												</span>
 											</li>
 										))}

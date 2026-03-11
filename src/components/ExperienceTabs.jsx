@@ -151,14 +151,19 @@ export default function ExperienceTabs() {
 					>
 						{experience.map((item, index) => (
 							<ListItem key={index} className="mb-12" {...listItemProps}>
-								<article className="group relative grid grid-cols-1 gap-2 p-4 lg:p-6 lg:grid-cols-[120px_1fr] rounded-xl border border-transparent transition-all duration-150 motion-reduce:transition-none lg:hover:!opacity-100 lg:group-hover/list:opacity-50 lg:hover:border-[var(--primary)]/30 lg:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] card-bg card-bg--accent">
+								<article 
+									tabIndex={0}
+									role="group"
+									aria-labelledby={`experience-title-${index}`}
+									className="group relative grid grid-cols-1 gap-2 p-4 lg:p-6 lg:grid-cols-[120px_1fr] rounded-xl border border-transparent transition-all duration-150 motion-reduce:transition-none lg:hover:!opacity-100 lg:group-hover/list:opacity-50 lg:hover:border-[var(--primary)]/30 lg:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] focus:outline-none focus-visible:border-[var(--accent)] focus-visible:shadow-[0_8px_30px_rgba(var(--accent-rgb),0.2)] card-bg card-bg--accent"
+								>
 									<header className="z-10 text-sm text-[var(--ui-divider)] font-mono">
 										<time dateTime={item.date.includes("Present") ? undefined : item.date.replace(" — ", "/")}>
 											{item.date}
 										</time>
 									</header>
 									<div className="z-10">
-										<h4 className="text-[var(--ui-active)] font-medium leading-snug">
+										<h4 id={`experience-title-${index}`} className="text-[var(--ui-active)] font-medium leading-snug">
 											{item.title.split(" · ")[0]}
 											{item.title.includes(" · ") && (
 												<span className="text-[var(--accent-secondary)]"> · {item.title.split(" · ")[1]}</span>
@@ -177,7 +182,7 @@ export default function ExperienceTabs() {
 														key={i} 
 														className={getSkillTagClass(skill)}
 													>
-														{skill}
+														<span className="sr-only">Skill: </span>{skill}
 													</li>
 												))}
 											</ul>
@@ -206,14 +211,19 @@ export default function ExperienceTabs() {
 					>
 						{education.map((item, index) => (
 							<ListItem key={index} className="mb-12" {...listItemProps}>
-								<article className="group relative grid grid-cols-1 gap-2 p-4 lg:p-6 lg:grid-cols-[120px_1fr] rounded-xl border border-transparent transition-all duration-150 motion-reduce:transition-none lg:hover:!opacity-100 lg:group-hover/list:opacity-50 lg:hover:border-[var(--primary)]/30 lg:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] card-bg card-bg--accent">
+								<article 
+									tabIndex={0}
+									role="group"
+									aria-labelledby={`education-title-${index}`}
+									className="group relative grid grid-cols-1 gap-2 p-4 lg:p-6 lg:grid-cols-[120px_1fr] rounded-xl border border-transparent transition-all duration-150 motion-reduce:transition-none lg:hover:!opacity-100 lg:group-hover/list:opacity-50 lg:hover:border-[var(--primary)]/30 lg:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] focus:outline-none focus-visible:border-[var(--accent)] focus-visible:shadow-[0_8px_30px_rgba(var(--accent-rgb),0.2)] card-bg card-bg--accent"
+								>
 									<header className="z-10 text-sm text-[var(--ui-divider)] font-mono">
 										<time dateTime={item.date.includes("—") ? item.date.replace(" — ", "/") : item.date}>
 											{item.date}
 										</time>
 									</header>
 									<div className="z-10">
-										<h4 className="text-[var(--ui-active)] font-medium leading-snug">
+										<h4 id={`education-title-${index}`} className="text-[var(--ui-active)] font-medium leading-snug">
 											{item.title}
 										</h4>
 
