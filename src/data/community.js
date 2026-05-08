@@ -20,7 +20,7 @@ export const community = [
 	{
 		title: "Code Liberation Foundation",
 		role: "Instructor",
-		description: "Taught game development and web development workshops. Trained other organizations on curriculum and live coding techniques.",
+		description: "Taught game development workshops. Trained other organizations on curriculum and live coding techniques.",
 	},
 	
 	// SCHOLARSHIPS (oldest at bottom)
