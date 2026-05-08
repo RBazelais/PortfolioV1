@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { experience } from "@/data/experience";
 import { education } from "@/data/education";
+import { community } from "@/data/community";
 import { FadeInSection } from "./ScrollAnimations";
 import { getSkillTagClass } from "@/utils/skillColors";
 
@@ -29,7 +30,7 @@ export default function ExperienceTabs() {
 	const tabRefs = useRef({});
 	const prefersReducedMotion = useReducedMotion();
 
-	const tabs = ["experience", "education"];
+	const tabs = ["experience", "education", "community"];
 
 	// Keyboard navigation for tabs
 	const handleKeyDown = (e) => {
@@ -132,6 +133,23 @@ export default function ExperienceTabs() {
 					}`}
 				>
 					Education
+				</button>
+				<button
+					ref={(el) => (tabRefs.current["community"] = el)}
+					role="tab"
+					id="community-tab"
+					aria-selected={activeTab === "community"}
+					aria-controls="community-panel"
+					tabIndex={activeTab === "community" ? 0 : -1}
+					onClick={() => setActiveTab("community")}
+					onKeyDown={handleKeyDown}
+					className={`px-4 py-2 text-sm font-medium rounded-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)] ${
+						activeTab === "community"
+							? "bg-[var(--accent)] text-[var(--bg-base)]"
+							: "text-[var(--ui-muted)] hover:text-[var(--ui-active)]"
+					}`}
+				>
+					Community
 				</button>
 			</div>
 
@@ -267,6 +285,48 @@ export default function ExperienceTabs() {
 													</li>
 												))}
 											</ul>
+										)}
+									</div>
+								</article>
+							</ListItem>
+						))}
+					</ListContainer>
+				)}
+			</div>
+
+			{/* Community Panel */}
+			<div
+				role="tabpanel"
+				id="community-panel"
+				aria-labelledby="community-tab"
+				hidden={activeTab !== "community"}
+			>
+				{activeTab === "community" && (
+					<ListContainer
+						key="community"
+						aria-label="Community involvement"
+						className="group/list list-none p-0 m-0"
+						{...listContainerProps}
+					>
+						{community.map((item, index) => (
+							<ListItem key={index} className="mb-12" {...listItemProps}>
+								<article
+									tabIndex={0}
+									role="group"
+									aria-labelledby={`community-title-${index}`}
+									className="group relative grid grid-cols-1 gap-2 p-4 lg:p-6 lg:grid-cols-[120px_1fr] rounded-xl border border-transparent transition-all duration-150 motion-reduce:transition-none lg:hover:!opacity-100 lg:group-hover/list:opacity-50 lg:hover:border-[var(--primary)]/30 lg:hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] focus:outline-none focus-visible:border-[var(--accent)] focus-visible:shadow-[0_8px_30px_rgba(var(--accent-rgb),0.2)] card-bg card-bg--accent"
+								>
+									<header className="z-10 text-sm text-[var(--ui-divider)] font-mono">
+										{item.role}
+									</header>
+									<div className="z-10">
+										<h4 id={`community-title-${index}`} className="text-[var(--ui-active)] font-medium leading-snug">
+											{item.title}
+										</h4>
+										{item.description && (
+											<p className="text-[var(--ui-muted)] mt-2 text-sm leading-normal">
+												{item.description}
+											</p>
 										)}
 									</div>
 								</article>
