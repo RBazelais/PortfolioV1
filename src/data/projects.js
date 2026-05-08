@@ -2,40 +2,58 @@ export const projects = [
 	{
 		slug: "standup-tracker",
 		title: "StandUp Tracker",
-		subtitle: "Auto-create standup notes from Git commits",
-		description: "Standup Tracker helps developers track daily progress by automatically pulling GitHub commits to create standup notes in seconds. Perfect for async teams and individuals who want to stay organized without disrupting workflow.",
+		subtitle: "Reduce cognitive load. Your commits already know what you did.",
+		description: "A full-stack developer tool that solves a specific friction: reconstructing yesterday's work across GitHub, Jira, and Slack from memory every morning. Groups commits by day and branch, links tasks automatically, and formats updates for every tool that needs it.",
 		image: "/images/projects/standup-tracker.png",
 		github: "https://github.com/RBazelais/standup-tracker",
 		liveUrl: "https://standup-tracker-indol.vercel.app/",
 		featured: true,
-		status: "in-progress",
+		status: "shipped",
 		
-		problem: "Daily standups can disrupt focus and are hard across timezones; teams needed an async, low-friction way to create updates.",
+		problem: "Engineers context-switch constantly: a bug for one team, a feature branch, a pairing session. Then 9am comes and you have to reconstruct your yesterday from memory while someone is already talking, then manually update GitHub, Jira, Slack, and smart goals. That cognitive load adds up.",
 		
-		solution: "Auto-populate standup notes from Git commits, with GitHub OAuth for secure access and a light, fast UI built with React + TypeScript.",
+		solution: "Standup Tracker reduces that tax. Your commits already know what you did, grouped by day and branch, with your tasks already linked. What you complete gets formatted for every tool that needs it, so the update takes seconds instead of minutes. Tasks don't go stale because the work you're already doing becomes the communication.",
 		
 		features: [
-			"Auto-populate from Git commits",
-			"GitHub OAuth with secure token handling",
-			"Link updates to SMART goals (planned)",
-			"Vercel serverless functions for backend"
+			"Dual OAuth (GitHub + Jira) with token refresh and secure storage",
+			"Optimistic UI with race-safe rollback using TanStack Query",
+			"WCAG-compliant keyboard navigation (skip links, focus management on route transitions)",
+			"Commit grouping by day and branch with smart selection",
+			"Automatic task linking from commit messages",
+			"Export formats for Slack, Markdown, Jira, and plain text",
+			"PostgreSQL with Drizzle ORM for type-safe queries",
+			"Playwright E2E suite against real Vercel preview deployments"
 		],
 		
 		challenges: [
 			{
-				title: "Commit parsing and noise",
-				description: "Commits vary in quality; need to extract meaningful lines for standup notes without noise.",
-				solution: "Implement heuristics to select commit messages and optionally allow manual edits before saving."
+				title: "Optimistic UI with race-safe rollback",
+				description: "When a user creates a standup, the UI updates immediately. If the request fails, it rolls back. The subtlety is that a naive rollback restores the current cache state, which may have changed if another request landed in the meantime.",
+				solution: "Snapshot the cache before the mutation and cancel any in-flight background refetches. The `cancelQueries` call makes it race safe: without it, a background refetch could overwrite the snapshot before the optimistic update lands."
+			},
+			{
+				title: "OAuth cookie bridge across serverless functions",
+				description: "Jira OAuth requires two serverless functions that share no memory. The redirect handler knows the user's ID and generates a CSRF state. The callback handler needs both, but has no way to get them.",
+				solution: "A short-lived HttpOnly cookie. The redirect encodes state + userId into the cookie. The callback reads it, validates the CSRF state, and clears the cookie. SameSite=Lax (not Strict) is required for the OAuth redirect to work."
+			},
+			{
+				title: "The sr-only ghost that broke 13 tests",
+				description: "Adding a screen reader live region to toasts caused 13 Playwright tests to fail. The live region was working perfectly. The tests were wrong.",
+				solution: "Scoped toast assertions to Sonner's `[data-title]` attribute, which exists only on the visible toast element. The sr-only div became invisible to the test, and the accessibility feature stayed."
 			}
 		],
 		
 		learnings: [
-			"Designing UX for async workflows",
-			"Integrating OAuth securely with serverless functions",
-			"Balancing automation with manual control"
+			"Cognitive load is a tax. Reducing it for developers should be a primary design goal.",
+			"OAuth across serverless functions requires thinking about stateless bridges, not just copying patterns.",
+			"Accessibility is not a checklist. A working feature can break your tests, forcing you to write better, more resilient assertions.",
+			"The right place to handle null is at the boundary where data enters the component tree, not inside every leaf that uses it.",
+			"Types should describe reality, not paper over it. `?? undefined` in adapter code is a code smell."
 		],
 		
-		skills: ["React", "TypeScript", "Vite", "PostgreSQL", "Zustand", "Tailwind CSS", "Framer Motion", "Octokit", "Vercel",]
+		skills: [
+			"React", "TypeScript", "Radix UI", "Tailwind CSS", "Zustand", "React Query", "PostgreSQL", "Drizzle ORM", "Playwright", "Vercel", "GitHub OAuth", "Jira OAuth"
+		]
 	},
 	{
 		slug: "adaptive-inventory",
